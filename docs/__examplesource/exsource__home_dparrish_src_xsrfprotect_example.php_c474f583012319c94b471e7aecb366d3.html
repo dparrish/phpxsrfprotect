@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Sample usage</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">XsrfProtection</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                              		  [ <a href="../classtrees_XsrfProtection.html" class="menu">class tree: XsrfProtection</a> ]
+		  [ <a href="../elementindex_XsrfProtection.html" class="menu">index: XsrfProtection</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_XsrfProtection.html">XsrfProtection</a><br />
+            <br /><br />
+                  
+      
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1 align="center">Sample usage</h1>
+<div class="php">
+<ol><li><div class="src-line"><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-inc">include&nbsp;</span><span class="src-str">&quot;XsrfProtection.php&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Create&nbsp;the&nbsp;protection&nbsp;object</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../XsrfProtection/XsrfProtection.html">XsrfProtection</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Set&nbsp;a&nbsp;secret&nbsp;key.&nbsp;This&nbsp;should&nbsp;really&nbsp;be&nbsp;secret,&nbsp;but&nbsp;must&nbsp;be&nbsp;shared&nbsp;between</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;all&nbsp;your&nbsp;frontends&nbsp;that&nbsp;will&nbsp;be&nbsp;handling&nbsp;this&nbsp;type&nbsp;of&nbsp;request.</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodSetKey">SetKey</a><span class="src-sym">(</span><span class="src-str">&quot;CHANGE_THIS_KEY_TO_SOMETHING_ONLY_YOU_KNOW&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Set&nbsp;some&nbsp;user&nbsp;data.&nbsp;This&nbsp;would&nbsp;normally&nbsp;be&nbsp;the&nbsp;logged&nbsp;in&nbsp;user&nbsp;or&nbsp;some&nbsp;other</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;identifying&nbsp;field.</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodSetUserData">SetUserData</a><span class="src-sym">(</span><span class="src-str">&quot;dparrish&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Set&nbsp;the&nbsp;URL&nbsp;field</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodSetUrl">SetUrl</a><span class="src-sym">(</span><span class="src-str">&quot;http://www.test.com/xsrf/example.php&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Set&nbsp;the&nbsp;maximum&nbsp;age&nbsp;of&nbsp;tokens.&nbsp;The&nbsp;default&nbsp;is&nbsp;1&nbsp;hour.</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodSetTimeout">SetTimeout</a><span class="src-sym">(</span><span class="src-num">3600</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Use&nbsp;the&nbsp;session&nbsp;cache&nbsp;to&nbsp;prevent&nbsp;replay&nbsp;attacks.</span></div></li>
+<li><div class="src-line"><a href="http://www.php.net/session_start">session_start</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodSetStateful">SetStateful</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-key">if&nbsp;</span><span class="src-sym">(</span>isset<span class="src-sym">(</span><span class="src-var">$_REQUEST</span><span class="src-sym">[</span><span class="src-str">'test'</span><span class="src-sym">]</span><span class="src-sym">))&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;Validate&nbsp;the&nbsp;submitted&nbsp;form&nbsp;token.</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-var">$ret&nbsp;</span>=&nbsp;<span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodValidate">Validate</a><span class="src-sym">(</span><span class="src-var">$_POST</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-key">if&nbsp;</span><span class="src-sym">(</span><span class="src-var">$ret&nbsp;</span>!=&nbsp;<span class="src-id"><a href="../XsrfProtection/XsrfProtection.html">XsrfProtection</a></span><span class="src-sym">::</span><span class="src-id">kCheckSuccess</span><span class="src-sym">)&nbsp;</span><span class="src-sym">{</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;There&nbsp;was&nbsp;an&nbsp;error,&nbsp;print&nbsp;out&nbsp;the&nbsp;reason.&nbsp;This&nbsp;is&nbsp;not&nbsp;a&nbsp;good&nbsp;idea&nbsp;in</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-comm">//&nbsp;production,&nbsp;but&nbsp;works&nbsp;for&nbsp;an&nbsp;example.</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;<span class="src-str">&quot;XSRF&nbsp;detected,&nbsp;validation&nbsp;failure&nbsp;&quot;</span>.&nbsp;<span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodError">Error</a><span class="src-sym">(</span><span class="src-sym">)</span>.&nbsp;<span class="src-str">&quot;\n&quot;</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">return</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-comm">//&nbsp;All&nbsp;good,&nbsp;print&nbsp;something&nbsp;out&nbsp;and&nbsp;return</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;print&nbsp;<span class="src-str">&quot;Test&nbsp;value:&nbsp;&quot;</span>.&nbsp;<span class="src-var">$_REQUEST</span><span class="src-sym">[</span><span class="src-str">'test'</span><span class="src-sym">]</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;&nbsp;<span class="src-key">return</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><span class="src-sym">}</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line"><span class="src-comm">//&nbsp;Generate&nbsp;a&nbsp;very&nbsp;basic&nbsp;form&nbsp;that&nbsp;has&nbsp;XSRF&nbsp;protection.</span></div></li>
+<li><div class="src-line"><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;form&nbsp;method='post'&gt;</div></li>
+<li><div class="src-line">&lt;input&nbsp;type='text'&nbsp;name='test'&nbsp;value='foobar'&gt;</div></li>
+<li><div class="src-line">&lt;input&nbsp;type='submit'&nbsp;name='doit'&nbsp;value='Submit'&gt;</div></li>
+<li><div class="src-line"><span class="src-php">&lt;?=</span><span class="src-var">$prot</span><span class="src-sym">-&gt;</span><a href="../XsrfProtection/XsrfProtection.html#methodProtectionField">ProtectionField</a><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-php">?&gt;</span></div></li>
+<li><div class="src-line">&lt;/form&gt;</div></li>
+</ol>
+</div>
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Thu, 28 Oct 2010 15:42:34 +1100 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
